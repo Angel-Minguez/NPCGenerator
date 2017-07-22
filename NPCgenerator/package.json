@@ -1,0 +1,9 @@
+{
+  "name": "npcgenerator",
+  "version": "0.0.0",
+  "description": "NPCgenerator",
+  "main": "server.js",
+  "author": {
+    "name": "Sindariel"
+  }
+}
