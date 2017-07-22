@@ -1,0 +1,1 @@
+﻿(c) 2017 Copyright Angel Mínguez Burillo, All rights reserved.
