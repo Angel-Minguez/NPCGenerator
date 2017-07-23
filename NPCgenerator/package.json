@@ -1,10 +1,36 @@
 {
-  "name": "npcgenerator",
+  "name": "NPCgenerator",
   "version": "0.0.0",
   "description": "NPCgenerator",
-  "main": "server.js",
+  "main": "bootScript.js",
   "author": {
-    "name": "Sindariel"
+    "name": "Angel Minguez Burillo",
+    "email": "angelminguezburillo@gmail.com"
   },
-  "license": "(ISC) LicenseRef-LICENSE"
+  "repository": {
+    "url": "https://github.com/Angel-Minguez/NPCgenerator",
+    "type": "git"
+  },
+  "scripts": {
+    "start": "node bootScript.js"
+  },
+  "config": {
+    "port": 11981,
+    "session": "MySQL",
+    "environment": "developement",
+    "debug": "*",
+    "dbConnect": "",
+    "dbSessionConnect": "",
+    "securedb": "ssl",
+    "secure":  "off"
+  },
+  "license": "(ISC) LicenseRef-LICENSE",
+  "dependencies": {
+    "express": "^4.15.3",
+    "express-session": "^1.15.4",
+    "express-mysql-session": "^1.2.1",
+    "mysql": "^2.13.0",
+    "body-parser": "^1.17.2",
+    "multer": "^1.3.0"
+  }
 }
