@@ -1,6 +1,7 @@
 ﻿#!/usr/bin/env node
 /********************************************************************************************************/
-/* Module: Boot script for NPC Generator                                                                */
+/* Module name: bootScript.js                                                                           */
+/* Module description: Boot script for NPC Generator                                                    */
 /* Author: Angel Minguez Burillo                                                                        */
 /* Date: 7-22-2017                                                                                      */
 /* OPTIONS:                                                                                             */
@@ -11,6 +12,10 @@
 /* --securedb: <off|ssl>                    (Enable SSL on database connection)                         */
 /* --secure: <off|ssl>                      (Enable HTTPS)                                              */
 /********************************************************************************************************/
+const logger = require('./logger.js')({ path:'./logs/hola.txt' });
+logger.log("Hola");
+logger.log("adios");
+
 // Boot messages
 console.log("NPC Generator booting ...");
 console.log("Parsing command line arguments ...");
