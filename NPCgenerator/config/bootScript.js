@@ -12,9 +12,12 @@
 /* --securedb: <off|ssl>                    (Enable SSL on database connection)                         */
 /* --secure: <off|ssl>                      (Enable HTTPS)                                              */
 /********************************************************************************************************/
-const logger = require('./logger.js')({ path:'./logs/hola.txt' });
+const logger = require('./logger.js')({ path:'../logs/hola.txt' });
 logger.log("Hola");
-logger.log("adios");
+logger.log("Hola1");
+logger.log("Hola2");
+
+setTimeout(()=>{logger.log("Hola3")}, 10000);
 
 // Boot messages
 console.log("NPC Generator booting ...");
