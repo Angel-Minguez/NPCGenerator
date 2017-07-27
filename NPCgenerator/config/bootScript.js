@@ -14,13 +14,11 @@
 /********************************************************************************************************/
 const logger = require('./logger.js')({ path:__dirname + './../logs/hola.txt', dateFormat: 'Fecha: mm--dd--yyyy', timeFormat:'Hora: [hh][nn][ss]', rotation:'time' });
 logger.log("Hola");
-logger.log("Hola1");
-logger.log("Hola2");
+
 
 setTimeout(() => {
-    logger.log("Hola3"); logger.log("Hola");
     logger.log("Hola1");
-    logger.log("Hola2");}, 10000);
+    logger.log("Hola2");}, 1000);
 
 // Boot messages
 console.log("NPC Generator booting ...");

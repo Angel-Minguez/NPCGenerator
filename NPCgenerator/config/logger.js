@@ -22,9 +22,24 @@ const fs = require('fs');
 class timeRotator extends transStream {
     constructor(options) {
         super(options);
+		//this.fileWriteStream = fs.createWriteStream(options.path, {flags:'w'});
+		this.fileReadStream = fs.createReadStream(options.path);
+		this.fileReadStream.setEncoding('utf-8');
+		//this.fileReadStream.pause();
+		this.buffer ='';
+		this.deleted = false;
     }
-    _transform(data, encoding, callback) {
-        callback;
+    _transform(data, encoding,callback) {
+        if(this.deleted == false) {	
+			this.buffer += data.toString();
+			if(this.buffer.indexOf('\n')!==-1) {
+				this.push(this.buffer.slice(this.buffer.indexOf('\n')+2));
+				this.buffer = null;
+				this.deleted = true;
+			}
+		}
+		else this.push(data);
+		callback();
     }
 }
 
@@ -58,11 +73,13 @@ class logger extends writeStream {
         this.fileWriteStream.on('error', (_error) => {
             console.log('ERROR: %s', _error.message);
         });
-        this.fileReadStream = fs.createReadStream(options.path, this.fileReadStreamOptions);
-        this.fileReadStream.setEncoding('utf-8');
+       // this.fileReadStream = fs.createReadStream(options.path, this.fileReadStreamOptions);
+      //  this.fileReadStream.setEncoding('utf-8');
         this.fd = fs.openSync(this.path, 'r');
         this.timeStampOrder = this.setTimeStampOrder();
-        if (options.rotation == 'time') this.rotator = new timeRotator();
+        if (options.rotation == 'time') this.rotator = new timeRotator(options);
+		//this.rotator.fileReadStream.pipe(this.rotator);
+		//.pipe(this.rotator.fileWriteStream);
     }
     createTimeStamp(timeString, dateString) {
         let currentTime = new Date();
@@ -120,8 +137,9 @@ class logger extends writeStream {
     }
     rotateTime() {
       //  rotationPromise = new Promise((resolve, reject) => {
-           
-
+			this.rotator.fileWriteStream = fs.createWriteStream(this.path, {flags:'w'});
+			this.rotator.pipe(this.rotator.fileWriteStream);
+			console.log('Rotating...');
       //  });
     }
     rotateSize() {
@@ -141,7 +159,8 @@ class logger extends writeStream {
             datePromise.then(
                 (buffer) => {
                     let oldestTimeStamp = this.decodeTimeStamp(buffer);
-                    if (oldestTimeStamp != null) {
+                    console.log(oldestTimeStamp);
+					if (oldestTimeStamp != null) {
                         if (Date.now() > oldestTimeStamp.setUTCHours(oldestTimeStamp.getHours() + this.rotationPeriod)) {
                             console.log('ROTAMOS');
                             this.rotateTime();

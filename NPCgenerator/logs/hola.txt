@@ -1,18 +1,12 @@
-Fecha: 07--27--2017-Hora: [00][48][00] Hola
+Fecha: 07--27--2017-Hora: [15][28][27] Hola
 
-Fecha: 07--27--2017-Hora: [00][48][00] Hola1
+Fecha: 07--27--2017-Hora: [15][28][28] Hola1
 
-Fecha: 07--27--2017-Hora: [00][48][00] Hola2
+Fecha: 07--27--2017-Hora: [15][28][28] Hola2
 
-Fecha: 07--27--2017-Hora: [00][53][02] Hola
+Fecha: 07--27--2017-Hora: [15][29][22] Hola
 
-Fecha: 07--27--2017-Hora: [00][53][02] Hola1
+Fecha: 07--27--2017-Hora: [15][29][23] Hola1
 
-Fecha: 07--27--2017-Hora: [00][53][02] Hola2
-
-Fecha: 07--27--2017-Hora: [11][50][29] Hola
-
-Fecha: 07--27--2017-Hora: [11][50][29] Hola1
-
-Fecha: 07--27--2017-Hora: [11][50][29] Hola2
+Fecha: 07--27--2017-Hora: [15][29][23] Hola2
 
