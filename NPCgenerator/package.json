@@ -16,21 +16,26 @@
   },
   "config": {
     "port": 11981,
+    "portssl":  11982,
     "session": "MySQL",
     "environment": "developement",
     "debug": "*",
-    "dbConnect": "",
+    "maxpool": 25,
+    "main_database": "NPCGenerator",
+    "main_host": "localhost",
+    "main_user": "npc_generator_user",
     "dbSessionConnect": "",
     "securedb": "ssl",
-    "secure":  "off"
+    "secure": "off"
   },
   "license": "(ISC) LicenseRef-LICENSE",
   "dependencies": {
-    "express": "^4.15.3",
-    "express-session": "^1.15.4",
-    "express-mysql-session": "^1.2.1",
-    "mysql": "^2.13.0",
     "body-parser": "^1.17.2",
-    "multer": "^1.3.0"
+    "debug": "2.6.1",
+    "express": "^4.15.3",
+    "express-mysql-session": "^1.2.1",
+    "express-session": "^1.15.4",
+    "multer": "^1.3.0",
+    "mysql": "^2.13.0"
   }
 }
