@@ -11,6 +11,7 @@ const debug = require('debug')('dbConfig');                             //Debug 
 const mySQL = require('mysql');                                         //Nodejs MYSQL driver module
 let dbPoolOptions = {                                                   //JSON object with option for the creation of the connection pool
     connectionLimit: process.env.MAX_POOL,                              //Maximum connections for the pool
+    multipleStatements: true,                                           //Support for multiple statements in query
     database: global.mainDataBaseInfo.database,                         //Database name
     host: mainDataBaseInfo.host,                                        //Database connection host for the user
     user: mainDataBaseInfo.user,                                        //Database user

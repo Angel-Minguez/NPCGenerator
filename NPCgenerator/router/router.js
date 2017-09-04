@@ -4,12 +4,16 @@
 /* Author: Angel Minguez Burillo                                                                        */
 /* Date: 03-8-2017                                                                                      */
 /********************************************************************************************************/
-'use strict'        
+'use strict'
+const loginMain = require('../controllers/loginMain.js');
+const registerMain = require('../controllers/registerMain.js');
+const validateAccount = require('../controllers/validateAccount.js');
 module.exports = function router(app) {                                         //Simple function to link routes and route handlers    
-    app.get('/*', require('./../controllers/indexMain.js'));                    //Default route sends hook html for the angular application
+   
     //CORS test
-    app.post('/login', (req, res, next) => {
-        console.log(req.body);
-        res.end();
-    });
+    app.post('/login', loginMain);
+    app.param('valKey', validateAccount);
+    app.get('/register/:valKey', registerMain);
+    app.post('/register', registerMain);
+    app.get('/*', require('./../controllers/indexMain.js'));                    //Default route sends hook html for the angular application
 }

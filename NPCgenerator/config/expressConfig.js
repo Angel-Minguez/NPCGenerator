@@ -13,9 +13,8 @@ const multer = require('multer');                                               
 let app = express();                                                                        //Creation of the app object with express
 app.use('/', bodyParser.json({type: '*/json'}));                                            //Sign of json body parser as middleware for whole domain
 app.use('/', bodyParser.urlencoded({ type: '*/x-www-form-urlencoded', extended: true }));   //Sign of url-encoded parser as middleware
-app.use(require('./corsConfig.js'));                                                        //CORS middleware
+if(process.env.NODE_ENV == 'developement') app.use(require('./corsConfig.js'));             //CORS middleware
 app.use(require('./httpsRedirect.js'));                                                     //Redirect https traffic to https middleware
-
 app.use(express.static(__dirname + './../angular'));                                        //Configuration of the express static file server
 module.exports.uploads = multer({ dest: path.join(__dirname + './../static') });            //Configutation of the multipart parser, including the uploads path
 module.exports.app = app;                                                                   //Export of the app object

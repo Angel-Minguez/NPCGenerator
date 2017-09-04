@@ -47,7 +47,22 @@
     <Compile Include="config\logger.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="config\mailConfig.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="controllers\indexMain.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="controllers\loginMain.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="controllers\registerMain.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="controllers\validateAccount.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\userModel.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="router\router.js">
@@ -65,6 +80,7 @@
     <Folder Include="certificates\" />
     <Folder Include="angular\" />
     <Folder Include="controllers\" />
+    <Folder Include="models\" />
     <Folder Include="router\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->

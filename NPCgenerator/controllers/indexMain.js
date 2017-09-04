@@ -1,5 +1,5 @@
 ﻿/********************************************************************************************************/
-/* Module name: expressConfig.js                                                                        */
+/* Module name: indexMain.js                                                                            */
 /* Module description: Controller for the route '/*'                                                    */
 /* Author: Angel Minguez Burillo                                                                        */
 /* Date: 02-8-2017                                                                                      */
